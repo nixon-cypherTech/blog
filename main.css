@@ -1,0 +1,21 @@
+
+ body {
+  margin: 0;
+  /* height: 100%; */
+}
+
+ #app {
+    display: grid;
+    height: 110vh;
+    grid-template: 50px  auto 50px / 20fr 80fr;
+    /* position: relative; */
+}
+
+
+.top {
+  position: fixed;
+}
+
+
+
+ 

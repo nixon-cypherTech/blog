@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Google fonts Sprite Css clip parth maker Css graident Reposive",
    
-  "source": "index1.html",
+  "source": "index.html",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "start": "parcel",

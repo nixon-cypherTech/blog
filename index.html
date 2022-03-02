@@ -1,22 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-     <link rel="stylesheet" href="main.css">
-</head>
-<body>
-     <div id="app">
-        <div class="box box-one">
-           a
-       </div>
-       <div class="box">B</div>
-       <div class="box">C</div>
-       <div class="box">D</div>
-       <div class="box">F</div>
-      
-    </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Search optimization -->
+    <meta
+      name="description"
+      content="A senior software Engineer. Javascript affliate and agile mindset"
+    />
+
+    <!-- og stands for open graph content is what appears when people share our website -->
+    <meta property="og:title" content="Nixon Wandera Portfolio" />
+    <meta property="og:description" content="A full stack software developer" />
+    <meta property="og:type" content="Software Development" />
+    <!-- <meta property="og:image" content="http://">
+     <meta property="og:url" content="https://cyphertech.com"> -->
+    <title>Mbanda Nixon</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@200&family=Open+Sans:ital,wght@0,400;1,600&family=Work+Sans:wght@200;400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style/normalize.css" />
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <header>
+      <!-- TODO: 1. navigation  -->
+      <nav class="nav collapsible">
+        <a href=""><img class="logo" src="./images/nixon.svg" alt="" /></a>
+
+        <!-- lOGO -->
+        <svg class="icon icon--white nav__toggler">
+          <use xlink:href="images/sprite.svg#menu-svgrepo-com (2)"></use>
+        </svg>
+
+        <ul class="list nav__list collapsible__content">
+          <li class="nav__item"><a href="">HOME</a></li>
+          <li class="nav__item"><a href="#social-media">CONDUCT </a></li>
+          <li class="nav__item"><a href="mailto:mbandanixon@gmail.com">SEND MAIL</a></li>
+          <!-- <li class="nav__item"><a href="#social-media">REQUEST CV</a></li> -->
+        </ul>
+      </nav>
+    </header>
+
+    <main class="block block--dark block--skewed-left">
+      <section class="grid grid--1x3-span">
+        <aside class="aside" id="social-media">
+          <div class="box">
+            <a href="https://www.linkedin.com/in/nixon-wandera/" target="blank_">
+              <span class="icon-container">
+                <svg class="icon icon--white">
+                  <use xlink:href="images/sprite2.svg#linkedin-logo-svgrepo-com"></use>
+                </svg>
+              </span>
+            </a>
+          </div>
+          <div class="box">
+            <a href="https://github.com/mbanda1" target="blank_">
+              <span class="icon-container">
+                <svg class="icon icon--white">
+                  <use xlink:href="images/sprite.svg#github-svgrepo-com"></use>
+                </svg>
+              </span>
+            </a>
+          </div>
+          <div class="box">
+            <a href="https://stackoverflow.com/users/9530555/mbanda" target="blank_">
+              <span class="icon-container">
+                <svg class="icon icon--white">
+                  <use
+                    xlink:href="images/sprite.svg#stackoverflow-icon-svgrepo-com"
+                  ></use>
+                </svg>
+              </span>
+            </a>
+          </div>
+          <div class="box">
+            <a href="#" target="blank_">
+              <span class="icon-container">
+                <svg class="icon icon--white">
+                  <use
+                    xlink:href="images/sprite.svg#slack-new-logo-logo-svgrepo-com"
+                  ></use>
+                </svg>
+              </span>
+            </a>
+          </div>
+
+          <div class="box">
+            <a href="mailto:mbandanixon@gmail.com">
+              <span class="icon-container">
+                <svg class="icon icon--white">
+                  <use xlink:href="images/sprite.svg#gmail-svgrepo-com"></use>
+                </svg>
+              </span>
+            </a>
+          </div>
+        </aside>
+
+        <div class="block__header">
+          <div class="main--section">
+            <em class="greatings">Hello, my name is</em>
+            <h2 class="block__heading">Nixon W.</h2>
+            <h3 class="profession">Full Stack Software Developer</h3>
+
+            <div class="card card--primary">
+              <header class="card__header">
+                <h4>Technology Stack</h4>
+              </header>
+              <div class="card__body">
+                <ul class="list list--tick">
+                  <li class="list__item">Javascript</li>
+                  <li class="list__item">Nodejs</li>
+                  <li class="list__item">Reactjs</li>
+                  <li class="list__item">Html/Css/Saas</li>
+                  <li class="list__item">Containerization</li>
+                  <li class="list__item">Kubernetes</li>
+                  <li class="list__item">GCP</li>
+                </ul>
+              </div>
+            </div>
+
+            <blockquote class="quote">
+              <p class="quote__text">
+                The Technology you use impreses no one. The skills you apply to create it
+                is everything
+              </p>
+              <em> -- Sean Gerety</em>
+            </blockquote>
+          </div>
+          <picture class="profile__image">
+            <source
+              type="image/webp"
+              srcset="./images/profile.webp 1x, ./images/profile.webp 2x"
+            />
+            <img class="nixon__image" src="./images/profile.jpg" alt="Nixon W." />
+          </picture>
+        </div>
+      </section>
+    </main>
+
+    <section class="footer_brand">
+      <img class="footer-img" src="./images/nixon.svg" alt="" />
+    </section>
+    <p class="footer_copyright">&#169; <span id="getyear"></span></p>
+
+    <script src="style/scritp.js"></script>
+  </body>
 </html>

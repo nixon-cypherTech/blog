@@ -99,7 +99,7 @@ a {
 
 .list--tick li {
     /* list-style-image: url(../images/check-tick-svgrepo-com.svg); */
-    list-style-image: linear-gradient(to right bottom, rgba(250, 22, 22, .8), blue);
+    list-style-image: linear-gradient(to right bottom, rgba(250, 22, 22, .8), rgb(183, 255, 0));
 
     padding-left: 3rem;
 }
@@ -265,8 +265,8 @@ a {
   .card {
     border-radius: 7px;
     overflow: auto;
-    border: 2px dotted var(--color-acient);
-    border-style: dashed solid;
+    border: 1.3px dotted var(--color-acient);
+    border-style: solid dashed;
   }
   
   .card__header,
@@ -280,7 +280,7 @@ a {
   }
 
   .card--primary .card__header {
-    background: var(--color-primary);
+    background: #a5ab4a;
     color: #fff;
   }
 
@@ -324,9 +324,8 @@ a {
       display: flex;
       width: 100%;
       flex-direction: column;
-      justify-content: space-evenly;
+      justify-content: flex-start;
       transition: all 0.3s ease;
-      justify-content: center;
    }
 
 

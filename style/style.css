@@ -255,8 +255,10 @@ a {
   }
   
   .block--skewed-left {
+    transform: skew(-15deg);
+
     padding-bottom: calc(var(--padding-vertical) + 4rem);
-    clip-path: polygon(100% 1%, 100% 88%, 51% 90%, 0% 100%, 3% 74%, 0% 0%);
+    clip-path: polygon(11% 2%, 95% 1%, 90% 100%, 6% 100%);
 }
 
 

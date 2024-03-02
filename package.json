@@ -2,17 +2,21 @@
   "name": "mbanda-w",
   "version": "1.0.0",
   "description": "Google fonts Sprite Css clip parth maker Css graident Reposive",
-   
   "source": "index.html",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "start": "parcel",
-    "build": "parcel build"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "targets": {
+    "default": {
+      "includeNodeModules": true
+    }
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "parcel": "^2.3.2"
+    "parcel": "latest"
   }
 }

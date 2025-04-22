@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Search optimization -->
+  <meta name="description" content="Explore the react Mock testing database using mswjs/data and fakerjs." />
+
+  <!-- Open Graph content -->
+  <meta property="og:title" content="Mock testing database using mswjs/data and fakerjs | Nixon Wandera" />
+  <meta property="og:description" content="Explore the react Mock testing database using mswjs/data and fakerjs." />
+  <meta property="og:type" content="article" />
+
+  <title>Mock testing database using mswjs/data and fakerjs | Nixon Wandera</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600;700&family=Open+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+    rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/normalize.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/blog.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="../index.html" class="logo">
+          <img src="../images/nixon.svg" alt="Nixon Wandera" />
+        </a>
+
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span class="hamburger"></span>
+        </button>
+
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="../index.html#home" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="../index.html#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="../index.html#skills" class="nav-link">Skills</a></li>
+          <li class="nav-item"><a href="../index.html#blog" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="../index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="blog-post">
+      <div class="container">
+        <header class="blog-post-header">
+          <h1 class="blog-post-title">React, Mock testing database using mswjs/data and fakerjs</h1>
+          <div class="blog-post-meta">
+            <span class="blog-post-date">June 26, 2024</span>
+            <span class="blog-post-author">By Nixon Wandera</span>
+          </div>
+        </header>
+
+        <div class="blog-post-content">
+          <p class="blog-post-intro">Lets begin by looking at some disadvantages of manual test data.</p>
+
+          <ul class="blog-point">
+            <li>Overhead maintenance could lack realism especially in data driven applications.</li>
+            <li>Could be expensive maintaining epecially in large project/where data stracture changes frequently.</li>
+          </ul>
+
+          <p class="blog-quote">
+            "We achieve this using mock service worker, which allows us to mock HTTP requests without having to call the backend. This will make our tests more efficient, more independent, maintainable and very fast to execute."
+          </p>
+
+          <figure class="blog-post-image">
+            <img
+              src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.theknowledgeacademy.com%2Fblog%2Fdata-driven-testing%2F&psig=AOvVaw3wK4hqDTzJFIoY6xAsaxz1&ust=1745414529466000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNj0yYTe64wDFQAAAAAdAAAAABAE"
+              alt="" />
+            <!-- <figcaption>A typical microservices architecture with Node.js services communicating via APIs</figcaption> -->
+          </figure>
+
+          <h3>1. We will begin by demonstrating how the legacy flow using msw and manual data is achieved.</h3>
+          <p>
+            For simplicity we expose our baseUrl in our main file using axios.
+          </p>
+          <pre><code>
+        import axios from "axios";
+        import React from "react";
+        import ReactDOM from "react-dom/client";
+
+        axios.defaults.baseURL = "http://localhost:3000"; // baseUrl exposed
+
+        ReactDOM.createRoot(...);
+            </code></pre>
+          <p>Now we have access our /products address anywhere in our application.
+
+
+          <h3>2. Create Product model interface and export it from utils.ts </h3>
+          <pre>
+            <code>
+              export interface Product {
+                id: number;
+                name: string;
+                price: number;
+                categoryId: number;
+              };            
+            </code></pre>
+
+          <h3>3. The Component being tested ProductDetail.tsx          </h3>
+
+          <img 
+  src="../images/bloging_pic/ProductDetail_image.webp" 
+  alt="Hero section image" 
+/>
+
+<!-- width: 100%; max-width: 500px; border-radius: 12px; -->
+
+
+<h3>4. Test our component using manual data — ProductDetail.test.tsx</h3>
+          <pre><code>
+            import { render, screen } from '@testing-library/react'
+            import { HttpResponse, delay, http } from 'msw'
+            import { QueryClient, QueryClientProvider } from 'react-query'
+            import ProductDetail from './ProductDetail'
+
+            describe('Product details test', () => {
+                const renderComponent = () => {
+                    const client = new QueryClient({
+                    defaultOptions: {
+                        queries: {
+                            retry: false,
+                        }
+                    }
+                })
+            render(
+                 QueryClientProvider client={client}>
+                    ProductDetail/>
+                /QueryClientProvider>
+            )
+        }
+
+        test('should display loading on fetch', () => {
+                http.get('/products', async() => {
+                    await delay()
+                    return HttpResponse.json([])
+                })
+            renderComponent()
+            expect(screen.queryByText(/loading/i)).toBeInTheDocument()
+        })
+        test('should return error when fetch fails ', async () => {
+                http.get('/products', () => {
+                    return HttpResponse.error()
+                })
+            renderComponent()
+            expect(await screen.findByText(/error/i)).toBeInTheDocument()
+        })
+
+        test('should return products list', async () => {
+                http.get('/products', () => {
+                    return HttpResponse.json([
+                     manual data --> hard to scale and maintain
+                        {id: 1, name: 'Epic 1', price: 10, categoryId: 1},
+                        {id: 2, name: 'Epic 2', price: 20, categoryId: 2},     
+                    ])
+                })
+            renderComponent()
+            const items = await screen.findAllByRole('listitem')
+            expect(items.length).toBeGreaterThan(0)
+        })
+})
+            </code></pre>
+
+          <p>If your implementation went well, you should get success on all tests </p>
+
+          <img 
+          src="../images/bloging_pic/succes_tests.webp" 
+          alt="success_tests" 
+        />
+
+          <h3>→ We will now implement our test cases using mswjs/data and fakerjs</h3>
+          <p>
+            We export our database function with our model object from db.ts
+          </p>
+
+          <img 
+          src="../images/bloging_pic/db_function.webp" 
+          alt="db_function" 
+        />
+        
+
+
+          <h3>5. Test our component using database function — ProductDetail.test.tsx </h3>
+          <p>
+            Implement health check endpoints to monitor service health:
+          </p>
+          <pre><code>
+              import { render, screen } from '@testing-library/react';
+              import { HttpResponse, delay, http } from 'msw';
+              import { QueryClient, QueryClientProvider } from 'react-query';
+              import { Product } from './utils';
+              import { db } from '../mocks/db';
+              import ProductDetail from './ProductDetail';
+
+
+              describe('Product details test', () => {
+                  const products: Product[] = []
+
+                  beforeEach(() => {
+                 // dynamically created data
+                      [1, 2, 3].map(() => {
+                          products.push(db.product.create())
+                      })
+                  })
+
+
+              afterAll(() => {
+                  const productIds = products.map(x => x.id)
+                  db.product.deleteMany({where : {id: {in: productIds}}})
+              })
+              const renderComponent = () => {
+                  const client = new QueryClient({
+                  defaultOptions: {
+                      queries: {
+                          retry: false,
+                      }
+                  }
+              })
+              render(
+                  QueryClientProvider client={client}>
+                      ProductDetail/>
+                  /QueryClientProvider>
+              )
+
+          }
+
+              test('should display loading on fetch', () => {
+                      http.get('/products', async() => {
+                          await delay()
+                          return HttpResponse.json([])
+                      })
+                  renderComponent()
+                  expect(screen.queryByText(/loading/i)).toBeInTheDocument()
+              })
+
+              test('should return error when fetch fails ', async () => {
+                      http.get('/products', () => {
+                          return HttpResponse.error()
+                      })
+                  renderComponent()
+                  expect(await screen.findByText(/error/i)).toBeInTheDocument()
+              })
+
+            test('should display error if product fetching fails', async () => {
+                    http.get('/products', async () => {
+                        await delay()
+                        return HttpResponse.error()
+                    })
+                renderComponent()
+                expect(await screen.findByText(/error/i)).toBeInTheDocument()
+            })
+
+
+
+                  test('should return products list', async () => {
+                          http.get('/products', async () => {
+                              await delay()
+                              return HttpResponse.json(products)
+                          })
+                      renderComponent()
+                      const items = await screen.findAllByRole('listitem')
+                      expect(items.length).toBeGreaterThan(0)
+                      products.forEach((p) => {
+                          expect(screen.getByText(p.name)).toBeInTheDocument()
+                      })
+                  })
+              })
+                      </code></pre>
+
+
+
+
+          <h2>Conclusion</h2>
+          <h5>Note: mwsjs/data is undergoing api changes and you want to always check with the documentation [npm]. The
+            version i used was 0.16.1 which is latest at time of this blog</h5>
+        </div>
+
+        <div class="blog-post-footer">
+          <div class="blog-post-tags">
+            <span class="tag">React</span>
+            <span class="tag">React testing Library</span>
+            <span class="tag">javaScript</span>
+            <span class="tag">Mocking</span>
+          </div>
+          <div class="blog-post-share">
+            <span> <i>Write:</i> Nixon:</span>
+            <a href="https://www.linkedin.com/in/nixon-wandera/" class="share-link">LinkedIn</a>
+            <a href="https://github.com/mbanda1" class="share-link">Github</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="../images/nixon.svg" alt="Nixon Wandera" />
+        </div>
+        <div class="footer-text">
+          <p>&copy; <span id="year"></span> Nixon Wandera. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+
+</html>

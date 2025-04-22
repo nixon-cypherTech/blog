@@ -8,183 +8,276 @@
     <!-- Search optimization -->
     <meta
       name="description"
-      content="A senior software Engineer. Javascript affliate and agile mindset"
+      content="Nixon Wandera - Senior Software Engineer specializing in JavaScript, Node.js, and React. 6+ years of experience building scalable applications."
     />
 
-    <!-- og stands for open graph content is what appears when people share our website -->
-    <meta property="og:title" content="Nixon Wandera Portfolio" />
-    <meta property="og:description" content="Software Engineer" />
-    <meta property="og:type" content="Node.js expert" />
-    <!-- <meta property="og:image" content="http://">
-     <meta property="og:url" content="https://cyphertech.com"> -->
-    <title>Mbanda Nixon</title>
+    <!-- Open Graph content -->
+    <meta property="og:title" content="Nixon Wandera | Software Engineer" />
+    <meta property="og:description" content="Senior Software Engineer with 6+ years of experience in JavaScript, Node.js, and React." />
+    <meta property="og:type" content="website" />
+    
+    <title>Nixon Wandera | Software Engineer</title>
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@200&family=Open+Sans:ital,wght@0,400;1,600&family=Work+Sans:wght@200;400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600;700&family=Open+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap"
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="style/normalize.css" />
-    <link rel="stylesheet" href="style/style.css" />
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <header>
-      <!-- TODO: 1. navigation  -->
-      <nav class="nav collapsible">
-        <a href=""><img class="logo" src="./images/nixon.svg" alt="" /></a>
+    <header class="header">
+      <div class="container">
+        <nav class="nav">
+          <a href="#" class="logo">
+            <img src="images/nixon.svg" alt="Nixon Wandera" />
+          </a>
 
-        <!-- lOGO -->
-        <svg class="icon icon--white nav__toggler">
-          <use xlink:href="images/sprite.svg#menu-svgrepo-com (2)"></use>
-        </svg>
+          <button class="nav-toggle" aria-label="Toggle navigation">
+            <span class="hamburger"></span>
+          </button>
 
-        <ul class="list nav__list collapsible__content">
-          <li class="nav__item"><a href="">HOME</a></li>
-          <li class="nav__item"><a href="#social-media">CONDUCT </a></li>
-          <li class="nav__item"><a href="mailto:mbandanixon@gmail.com">SEND MAIL</a></li>
-          <!-- <li class="nav__item"><a href="#social-media">REQUEST CV</a></li> -->
-        </ul>
-      </nav>
+          <ul class="nav-menu">
+            <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+            <li class="nav-item"><a href="#blog" class="nav-link">Blog</a></li>
+            <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <main class="block block--dark block--skewed-left">
-      <section class="grid grid--1x3-span">
-        <aside class="aside" id="social-media">
-          <div class="box">
-            <a href="https://www.linkedin.com/in/nixon-wandera/" target="blank_">
-              <span class="icon-container">
-                <svg class="icon icon--white">
-                  <use xlink:href="images/sprite2.svg#linkedin-logo-svgrepo-com"></use>
-                </svg>
-              </span>
-            </a>
-          </div>
-          <div class="box">
-            <a href="https://github.com/mbanda1" target="blank_">
-              <span class="icon-container">
-                <svg class="icon icon--white">
-                  <use xlink:href="images/sprite.svg#github-svgrepo-com"></use>
-                </svg>
-              </span>
-            </a>
-          </div>
-          <div class="box">
-            <a href="https://stackoverflow.com/users/9530555/mbanda" target="blank_">
-              <span class="icon-container">
-                <svg class="icon icon--white">
-                  <use
-                    xlink:href="images/sprite.svg#stackoverflow-icon-svgrepo-com"
-                  ></use>
-                </svg>
-              </span>
-            </a>
-          </div>
-          <div class="box">
-            <a href="https://eventmodeling.slack.com/team/U05BSCE0F4Z" target="blank_">
-              <span class="icon-container">
-                <svg class="icon icon--white">
-                  <use
-                    xlink:href="images/sprite.svg#slack-new-logo-logo-svgrepo-com"
-                  ></use>
-                </svg>
-              </span>
-            </a>
-          </div>
-
-          <div class="box">
-            <a href="mailto:mbandanixon@gmail.com">
-              <span class="icon-container">
-                <svg class="icon icon--white">
-                  <use xlink:href="images/sprite.svg#gmail-svgrepo-com"></use>
-                </svg>
-              </span>
-            </a>
-          </div>
-        </aside>
-
-        <div class="container block__header">
-          <div class="main--section left-box">
-            <p class="greatings">Greetings !</p>
-            <h2 class="block__heading">I am Nixon</h2>
-            <h3 class="profession">Full Stack Software Engineer <strong class="years">5 + Years</strong></h3>
-
-            <div class="card card--primary">
-              <header class="card__header">
-                <h4>Technology Stack</h4>
-              </header>
-              <div class="card__body">
-                <ul class="list list--tick">
-                  <li class="list__item">JavaScript</li>
-                  <li class="list__item">TypeScript</li>
-                  <li class="list__item">Node.js (Express, Fastify)</li>
-                  <li class="list__item">React.js/Next.js</li>
-                  <li class="list__item">Redux.js</li>
-                  <li class="list__item">Sql (PostgreSQL / PL/SQL)</li>
-                  <li class="list__item">Sequelize/Prisma</li>
-                  <li class="list__item">MongoDB/Mongoose</li>
-                  <li class="list__item">RESTful APIs</li>
-                  <li class="list__item">Docker</li>
-                  <li class="list__item">CI/CD</li>
-                  <li class="list__item">Testing</li>
-                  <li class="list__item">Microservices</li>
-                  <li class="list__item">System designs</li>
-                  <li class="list__item">Performance tunning</li>
-                  <li class="list__item">Reusable components</li>
-                  <li class="list__item">Integrations</li>
-                  <li class="list__item">Agile mindset</li>
-                </ul>
+    <main>
+      <!-- Hero Section -->
+      <section id="home" class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-text">
+              <p class="greeting">Hello there! 👋</p>
+              <h1 class="hero-title">I'm <span class="highlight">Nixon Wandera</span></h1>
+              <div class="typewriter-container">
+                <span class="typewriter-prefix">A&nbsp;</span>
+                <span class="typewriter" id="typewriter"></span>
+              </div>
+              <p class="hero-description">
+                “Driven by a passion for crafting market fit products. I engineer with a focus on simplicity, high performance and scalable architecture.”
+              </p>
+              
+              <div class="hero-cta">
+                <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                <a href="#skills" class="btn btn-secondary">View My Skills</a>
               </div>
             </div>
-
-            <blockquote class="quote">
-              <p class="quote__text">
-                The best way to predict the future is to keep creating it
-              </p>
-              <em> -- Alan Kay</em>
-            </blockquote>
-          </div>
-
-          <div class="right-box">
-            <div class="right-box-content">
-              <picture class="profile-picture">
-                <source
-                  type="image/webp"
-                  srcset="./images/profile.webp 1x, ./images/profile.webp 2x"
-                />
-                <img class="nixon__image" src="./images/profile.jpg" alt="Nixon W." />
-              </picture>
+            <div class="hero-image">
+              <div class="image-container">
+                <img src="images/profile.jpg" alt="Nixon Wandera" class="profile-image" />
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="about section">
+        <div class="container">
+          <h2 class="section-title">About Me</h2>
+          <div class="about-content">
+            <div class="about-text">
+              <p>
+                Seasoned full stack dev with a robust skill set encompassing the modern JavaScript ecosystem with 6+ years of professional experience.
+              </p>
+              <p class="pointers">
+                - I am strong advocate of Scale cube framework to ensure tech debt is kept in check and at optimal. 
+              </p>
+              <p class="pointers">
+                - I value and respect <strong>Products discovery</strong> for greater ownership of features:
+              </p>
+              <u class="sub"> Over the journey i have learned things:</u>
+              <ol>
+                <li>Collaboration is key. Understanding user journey and a sync communications is getting value out of a developer.</li>
+                <li>Ensure all stakeholders are involved in product direction; squeezing the peddle together</li>
+                <li>Understanding the big picture: be like which problem am i resolving <i>NOT</i> which tusk am i working on.</li>
+                <!-- <li> (unless the business is not growing).</li> -->
+              </ol>
           
+              <p>
+                - Currently learning <span class="highlight">Digital marketing ⚔️</span> and <span class="highlight">NestjS</span>
+              </p>
+              <blockquote class="quote">
+                <p>"The best way to predict the future is to keep creating it."</p>
+                <cite>— Alan Kay</cite>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <div class="card__body">
+      <!-- Skills Section -->
+      <section id="skills" class="skills section">
+        <div class="container">
+          <h2 class="section-title">Technical Skills</h2>
+          <div class="skills-content">
+            <div class="skills-card">
+              <h3 class="skills-card-title">Frontend</h3>
+              <ul class="skills-list">
+                <li>JavaScript</li>
+                <li>TypeScript</li>
+                <li>React.js</li>
+                <li>Next.js</li>
+                <li>Redux.js</li>
+              </ul>
+            </div>
+            <div class="skills-card">
+              <h3 class="skills-card-title">Backend</h3>
+              <ul class="skills-list">
+                <li>Node.js</li>
+                <li>Express</li>
+                <li>Fastify</li>
+                <li>RESTful APIs</li>
+                <li>PostgreSQL</li>
+                <li>MongoDB</li>
+                <li>Postgresql</li>
+                <li>Sequelize/Prisma</li>
+              </ul>
+            </div>
+            <div class="skills-card">
+              <h3 class="skills-card-title">DevOps & Tools</h3>
+              <ul class="skills-list">
+                <li>Docker</li>
+                <li>CI/CD</li>
+                <li>Testing</li>
+                <li>Microservices</li>
+                <li>System Design</li>
+                <li>Performance Tuning</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              Seasoned Software Engineer with a robust skill set encompassing JavaScript ecosystem.
+      <!-- Blog Section -->
+      <section id="blog" class="blog section">
+        <div class="container">
+          <h2 class="section-title">Latest Articles</h2>
+          <div class="blog-grid">
+            <!-- Blog Post 1 -->
+            <!-- <article class="blog-card">
+              <div class="blog-image">
+                <img src="https://via.placeholder.com/600x400" alt="Blog post thumbnail" />
+              </div>
+              <div class="blog-content">
+                <span class="blog-date">April 15, 2023</span>
+                <h3 class="blog-title">Optimizing Node.js Applications for Performance</h3>
+                <p class="blog-excerpt">
+                  Learn how to identify and resolve performance bottlenecks in your Node.js applications using profiling tools and best practices.
+                </p>
+                <a href="blog/optimizing-nodejs-applications.html" class="blog-link">Read More</a>
+              </div>
+            </article> -->
+            
+            <!-- Blog Post 2 -->
+            <article class="blog-card">
+              <div class="blog-image">
+                <img src="https://placehold.co/100x400" alt="Blog post thumbnail" />
+              </div>
+              <div class="blog-content">
+                <span class="blog-date">June 26, 2024</span>
+                <h3 class="blog-title">React, Mock testing database using mswjs/data and fakerjs</h3>
+                <p class="blog-excerpt">
+                  Learn how to replace manual mock data in our testing using mswjs/data (a data modelling and
+                  relation library) and fakerjs (library to generative massive and easily maintainable test data)                <a href="blog/building-scalable-microservices.html" class="blog-link">Read More</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
 
-              In future you should find me with a <b>Tuning</b> T-shirt. That means two thing: <br/>
-              1. Scalable but also optimal design elegance (Performance is core).</br>
-              2. Scale cube framework (unless the business is not growing).</br></br>
-              
-            * I showcase how Node.js empowers asynchronous programming with lightning-fast responsiveness and real-time data streaming.<br/>
-            * At moment i build my front-end mastery with React.js/Next.js, implementing advanced concepts such as server-side rendering, context API, hooks, suspense and interactive user experiences.<br/>
-              <br/>
-
-              Learning <i class="years">Graphql</i>
+      <!-- Contact Section -->
+      <section id="contact" class="contact section">
+        <div class="container">
+          <h2 class="section-title">Get In Touch</h2>
+          <div class="contact-content">
+            <div class="contact-info">
+              <h3>Let's Connect</h3>
+              <p>Feel free to reach out if you're looking for a developer, have a question, or just want to connect.</p>
+              <div class="contact-details">
+                <div class="contact-item">
+                  <span class="contact-icon">📧</span>
+                  <a href="mailto:mbandanixon@gmail.com">mbandanixon@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                  <span class="contact-icon">🌐</span>
+                  <span>Connect with me on social media</span>
+                </div>
+              </div>
+              <div class="social-links">
+                <a href="https://www.linkedin.com/in/nixon-wandera/" target="_blank" class="social-link" aria-label="LinkedIn">
+                  <svg class="social-icon">
+                    <use xlink:href="images/sprite2.svg#linkedin-logo-svgrepo-com"></use>
+                  </svg>
+                </a>
+                <a href="https://github.com/mbanda1" target="_blank" class="social-link" aria-label="GitHub">
+                  <svg class="social-icon">
+                    <use xlink:href="images/sprite.svg#github-svgrepo-com"></use>
+                  </svg>
+                </a>
+                <a href="https://stackoverflow.com/users/9530555/mbanda" target="_blank" class="social-link" aria-label="Stack Overflow">
+                  <svg class="social-icon">
+                    <use xlink:href="images/sprite.svg#stackoverflow-icon-svgrepo-com"></use>
+                  </svg>
+                </a>
+                <a href="https://eventmodeling.slack.com/team/U05BSCE0F4Z" target="_blank" class="social-link" aria-label="Slack">
+                  <svg class="social-icon">
+                    <use xlink:href="images/sprite.svg#slack-new-logo-logo-svgrepo-com"></use>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="contact-form-container">
+              <form class="contact-form" name="contact" method="POST" data-netlify="true">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="name" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+                <div class="form-group">
+                  <label for="subject">Subject</label>
+                  <input type="text" id="subject" name="subject" required />
+                </div>
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+              </form>
             </div>
           </div>
         </div>
       </section>
     </main>
-    
-    <section class="my_email">
-      Email: mbandanixon@gmail.com
-   </section>
-    <section class="footer_brand">
-      <img class="footer-img" src="./images/nixon.svg" alt="" />
-    </section>
-    <p class="footer_copyright">&#169; <span id="getyear"></span></p>
 
-    <script src="style/scritp.js"></script>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="images/nixon.svg" alt="Nixon Wandera" />
+          </div>
+          <div class="footer-text">
+            <p> Nixon &copy; <span id="year"></span>. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
   </body>
 </html>

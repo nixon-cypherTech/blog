@@ -17,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "parcel": "latest"
+    "parcel": "latest",
+    "svgo": "^3.3.2"
   }
 }

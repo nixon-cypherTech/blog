@@ -66,7 +66,7 @@
                 <span class="typewriter" id="typewriter"></span>
               </div>
               <p class="hero-description">
-                “Driven by a passion for crafting market fit products. I engineer with a focus on simplicity, high performance and scalable architecture.”
+                “Driven by a passion for crafting market fit products. I engineer with focus on simplicity, high performance and scalable architecture.”
               </p>
               
               <div class="hero-cta">
@@ -100,9 +100,9 @@
               </p>
               <u class="sub"> Over the journey i have learned things:</u>
               <ol>
-                <li>Collaboration is key. Understanding user journey and a sync communications is getting value out of a developer.</li>
+                <li>Enforcing clear & sync communication is getting value out of a developer.</li>
                 <li>Ensure all stakeholders are involved in product direction; squeezing the peddle together</li>
-                <li>Understanding the big picture: be like which problem am i resolving <i>NOT</i> which tusk am i working on.</li>
+                <li>Understanding the big picture. Ask "which problem am i solving" <i>NOT</i> "which tusk am i working on"</li>
                 <!-- <li> (unless the business is not growing).</li> -->
               </ol>
           
@@ -205,15 +205,11 @@
           <div class="contact-content">
             <div class="contact-info">
               <h3>Let's Connect</h3>
-              <p>Feel free to reach out if you're looking for a developer, have a question, or just want to connect.</p>
+              <p> Open for part-time collaboration and consultation services.</p>
               <div class="contact-details">
                 <div class="contact-item">
-                  <span class="contact-icon">📧</span>
-                  <a href="mailto:mbandanixon@gmail.com">mbandanixon@gmail.com</a>
-                </div>
-                <div class="contact-item">
                   <span class="contact-icon">🌐</span>
-                  <span>Connect with me on social media</span>
+                  <span>Let's connect</span>
                 </div>
               </div>
               <div class="social-links">
@@ -240,7 +236,7 @@
               </div>
             </div>
             <div class="contact-form-container">
-              <form class="contact-form" name="contact" method="POST" data-netlify="true">
+              <form class="contact-form" name="contact" method="POST" netlify>
                 <div class="form-group">
                   <label for="name">Name</label>
                   <input type="text" id="name" name="name" required />
@@ -257,7 +253,12 @@
                   <label for="message">Message</label>
                   <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
+                <!-- <button type="submit" class="btn btn-primary">Send Message</button> -->
+                <button type="submit" class="btn btn-primary" id="submit-btn">
+                  <span id="btn-text">Send Message</span>
+                  <span id="btn-loader" style="display: none;">Sending...</span>
+                </button>
+                
               </form>
             </div>
           </div>
@@ -278,6 +279,7 @@
       </div>
     </footer>
 
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

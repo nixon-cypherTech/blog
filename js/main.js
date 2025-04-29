@@ -65,20 +65,47 @@ if (typewriter) {
   setTimeout(typeEffect, 1000)
 }
 
-// Form submission with Netlify
-const form = document.querySelector(".contact-form")
-if (form) {
-  form.addEventListener("submit", (e) => {
-    // Netlify handles the form submission
-    // This is just for additional UX
-    const button = form.querySelector('button[type="submit"]')
-    button.textContent = "Sending..."
-    button.disabled = true
+(function () {
+  emailjs.init("r7hdWW_38GoWwr8Lx");
+})();
 
-    // Form will be handled by Netlify
-    // No need to prevent default or handle submission manually
-  })
-}
+const submitBtn = document.getElementById("submit-btn");
+const btnText = document.getElementById("btn-text");
+const btnLoader = document.getElementById("btn-loader");
+
+document.querySelector("form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  // Validate all fields
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const subject = document.getElementById("subject").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  if (!name || !email || !subject || !message) {
+    alert("Please fill in all fields before submitting.");
+    return;
+  }
+
+  // Show loader
+  btnText.style.display = "none";
+  btnLoader.style.display = "inline";
+
+  emailjs.sendForm("service_rt8actb", "template_kx6o8yj", this)
+    .then(() => {
+      alert("Your message is sent successfully!");
+      this.reset();
+    }, (err) => {
+      alert("Failed to send message. Error: " + JSON.stringify(err));
+    })
+    .finally(() => {
+      // Restore button state
+      btnText.style.display = "inline";
+      btnLoader.style.display = "none";
+    });;
+});
+
+
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
